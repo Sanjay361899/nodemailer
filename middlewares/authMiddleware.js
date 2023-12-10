@@ -9,6 +9,7 @@ var userAuth = async (req, res, next) => {
         req.user = await userModels.findById(userID).select('-password')
         next()
     } else {
+        console.log("not autherized")
         res.status(401).json({ message: "not autherized" })
     }
 }
